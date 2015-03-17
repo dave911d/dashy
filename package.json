@@ -1,0 +1,19 @@
+{
+  "name": "dashy",
+  "version": "0.0.2",
+  "description": "dashy",
+  "main": "dashboard.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "david johns",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.12.2",
+    "express-handlebars": "^1.2.2"
+  },
+  "devDependencies": {
+    "chai": "^2.1.1",
+    "mocha": "^2.2.1"
+  }
+}
