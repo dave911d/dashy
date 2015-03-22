@@ -5,18 +5,18 @@ module.exports = function (app) {
 
   //the main page
   app.get('/', function(req, res){
-    res.render('index', {title: 'Title', message: 'Dashboard'});//TODO move this to the file der
+    res.render('index', {title: 'Title', message: 'Dashboard'});
   });
 
 //the 404 page
   app.use(function(req, res, next){
     res.status(404);
-    res.render('404');//TODO THIS SHIT
+    res.render('404');
   });
 //the 500 page
 app.use(function(err, req, res, next){
   console.error(err.stack);
   res.status(500);
-  res.render('500'); //TODO this shit
+  res.render('500');
 });
 };
