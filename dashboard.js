@@ -8,7 +8,7 @@ require('./errorhandling/uncaughtexception.js')(app);
 app.engine('jade', require('jade').__express);
     app.set('view engine', 'jade');
     app.set('views', './views');
-    app.set('port', process.env.PORT || 3001);
+    app.set('port', process.env.PORT || 3002);
 
 
 app.listen(app.get('port'), function(){
