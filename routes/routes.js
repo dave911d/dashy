@@ -5,7 +5,7 @@ module.exports = function (app) {
 
   //the main page
   app.get('/', function(req, res){
-    res.render('index', {title: 'Title', message: 'Dashboard'});
+    res.render('index');
   });
 
 //the 404 page
