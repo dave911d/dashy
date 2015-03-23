@@ -1,6 +1,7 @@
 'use strict';
 /*eslint-env node, mocha */
-/*eslint quotes: [2, "single"], curly: 2, camelcase: 1, no-warning-comments:1*/
+/*eslint quotes: [2, "single"], curly: 2, camelcase: 1, no-warning-comments:1 no-underscore-dangle:0*/
+
 var express = require('express');
 var app = express();
 require('./routes/routes.js')(app);
@@ -12,6 +13,6 @@ app.engine('jade', require('jade').__express);
 
 
 app.listen(app.get('port'), function(){
-    console.log('Express is running on http://localhost:' + app.get('port') + '; press ctrl-c to end');
+    console.log('Express is running on http://localhost:' + app.get('port') + '; press Ctrl-c to end');
     console.log('at least its working dude');
   });
