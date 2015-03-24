@@ -8,10 +8,10 @@ module.exports = function (client){
 
   client.on('connect', function(err, res){
   if (err) {
-    console.log('cant connect to redis');
+    console.log('Cant connect to redis');
   }
   if (res){
-    console.log('connected to redis');
+    console.log('Connected to redis');
 }
 
   });
@@ -22,7 +22,7 @@ client.set('settest', 'successful', function(err, reply) {
     console.log('Check if server is up');
   }
   if (reply){
-  console.log('successful write to redis');
+  console.log('Successful write to redis');
 }
 });
 
@@ -34,6 +34,8 @@ client.get('settest', function (err, reply){
   }
   if (reply){
     console.log('Successful read from redis');
+
+
   }
 });
 };
