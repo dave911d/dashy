@@ -1,4 +1,13 @@
-p {
-  font-size: 500%;
-  font-family: helvetica;
+
+
+
+
+.welcometodashy{
+  font-size:300%;
+  text-align: center;
+}
+
+footer {
+  font-size: 200%;
+  text-align: center;
 }
