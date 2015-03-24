@@ -4,16 +4,28 @@
 //These are for my eslint setup
 var express = require('express'); //requires express,our HTTP lib
 var app = express(); //initiates express
-var redis = require('redis'); //requires redis, need this for data monitoring
-var login = require('./redisconfig/configRedis.js'); //this file contains port and ip of redis server
-var client = redis.createClient(login.portRedis(), login.ipRedis(), {}); /*login is defined in configRed.js */
-require('./redisconfig/redis.js')(client);
-require('./routes/routes.js')(app); //sets locations for routes
-require('./errorhandling/uncaughtexception.js')(app); //run if uncaughtexception
-app.engine('jade', require('jade').__express);
-  app.set('view engine', 'jade'); //sets jade,need this to display to browser
-   app.set('port', process.env.PORT || 3002); //Designates port to run on
 
+var redis = require('redis'); //requires redis, need this for data monitoring
+var redisIo = require('socket.io-redis');
+var io = require('socket.io')(3000);
+var http = require('http');
+var server = http.createServer(app);
+var ioServer = io.listen(server);
+var login = require('./redisconfig/configRedis.js');
+//this file contains port and ip of redis server
+var client = redis.createClient(login.portRedis(), login.ipRedis(), {});
+/*login is defined in configRedis.js */
+ io.adapter(redisIo({host: login.ipRedis(), port: login.portRedis()}));
+require('./redisconfig/redis.js')(client);
+require('./routes/routes.js')(app);
+//sets locations for routes
+require('./errorhandling/uncaughtexception.js')(app);
+//run if uncaughtexception
+app.engine('jade', require('jade').__express);
+  app.set('view engine', 'jade');
+  //sets jade,need this to display to browser
+   app.set('port', process.env.PORT || 3002);
+   //Designates port to run on
 
 app.listen(app.get('port'), function(err){
     if (err) {
