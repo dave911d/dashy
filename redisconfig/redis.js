@@ -6,8 +6,6 @@
 
 module.exports = function (client){
 
-
-
   client.on('connect', function(){
     console.log('connected to redis');
   });
@@ -17,19 +15,17 @@ client.set('test', 'successful', function(err, reply) {
     console.log(err.stack);
   }
   if (reply){
-  console.log(reply);
   console.log('successful write to redis');
 }
 });
 
 client.get('test', function (err, reply){
   if (err){
-    console.log('unsuccessful aquiring of test from redis');
+    console.log('unsuccessful acquiring of test from redis');
     console.log('check if server is up');
     console.log(err.stack);
   }
   if (reply){
-    console.log(reply);
     console.log('successful read from redis');
   }
 
