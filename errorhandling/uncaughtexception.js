@@ -11,3 +11,15 @@ process.on('uncaughtException', function(err) {
       process.kill();
     });
 };
+
+
+/*
+var domain = require('domain').create();
+domain.on('error', function(err){
+    console.log(err);
+});
+
+domain.run(function(){
+    throw new Error('Unexpected error right here');
+});
+*/ //TODO check if this can work

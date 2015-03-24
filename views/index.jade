@@ -1,11 +1,12 @@
 
 doctype html
 html
+block vars
     head
     style
       include ./public/css/styles.css
     title= "Dashy"
-    -var computersonline = "1"
+    
 
 
     body
@@ -15,10 +16,6 @@ html
           | you have no computers online/connected. :(
       if computersonline >= "1"
           | You have #{computersonline} computers online.
-    
-          
-
-  
   
   
   footer
