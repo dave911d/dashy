@@ -4,3 +4,4 @@ node_modules
 .tern-project
 configfile.js
 .idea
+*.idea
