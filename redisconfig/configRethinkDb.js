@@ -6,10 +6,14 @@
 
 var exports = module.exports = {};
 
-exports.portRedis = function() {
-  return '6379'; //change to the port of your redis server
+exports.portRethink = function() {
+  return '28015'; //change to the port of your redis server
 };
 
-exports.ipRedis = function() {
+exports.ipRethink = function() {
   return '10.0.0.49';  //change to the ip of your redis server
+};
+
+exports.databaseRethink = function() {
+  return 'stats'; //change to the Database you want to use
 };

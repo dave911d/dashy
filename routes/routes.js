@@ -14,6 +14,7 @@ module.exports = function (app) {
     res.status(404);
     res.render('404');
   });
+
 //the 500 page
 app.use(function(err, req, res){
   console.error(err.stack);
