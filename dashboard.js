@@ -7,17 +7,15 @@ var express = require('express'); //requires express,our HTTP lib
 var app = express(); //initiates express
 var r = require('rethinkdb');
 require('./routes/routes.js')(app); //sets locations for routes
-//var rethinkConnect = require('./redisConfig/rethinkConnect.js');
-var rethinkConfig = require('./redisconfig/configRethinkDb.js');
+require('./redisConfig/rethinkConnect.js');
+var rethinkConfig = require('./redisConfig/configRethinkDb.js');
 require('./errorHandling/uncaughtException.js')(app);//run if uncaughtException
-
 
 app.engine('jade', require('jade').__express);
   app.set('view engine', 'jade');
   //sets jade,need this to display to browser
    app.set('port', process.env.PORT || 3002);
    //Designates port to run on
-
 
 r.connect(
     { host: rethinkConfig.ipRethink(),
